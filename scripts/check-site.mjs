@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 const html = readFileSync("index.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
 const js = readFileSync("script.js", "utf8");
+const stripeLinks = JSON.parse(readFileSync("stripe-links.json", "utf8"));
 
 const requiredHtml = [
   "Real Work Systems",
@@ -16,12 +17,17 @@ const requiredHtml = [
   "$1,000",
   "$2,500",
   "$4,000",
-  "https://buy.stripe.com/aFa5kD4lG5JW7uf0ZWejK06",
 ];
 
 for (const text of requiredHtml) {
   if (!html.includes(text)) {
     throw new Error(`Missing required HTML text: ${text}`);
+  }
+}
+
+for (const item of Object.values(stripeLinks)) {
+  if (!html.includes(item.url)) {
+    throw new Error(`Missing Stripe link in HTML: ${item.url}`);
   }
 }
 
