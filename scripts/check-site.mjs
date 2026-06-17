@@ -14,6 +14,9 @@ const requiredHtml = [
   "$10k+",
   "AI Build Rescue",
   "AI Workflow Fix",
+  "No curiosity calls.",
+  "Systems over advice.",
+  "AI stays practical.",
   "$1,000",
   "$2,500",
   "$4,000",
@@ -33,6 +36,22 @@ for (const item of Object.values(stripeLinks)) {
 
 if (!css.includes("@media (max-width: 640px)")) {
   throw new Error("Missing mobile CSS breakpoint.");
+}
+
+if (!css.includes("@media (prefers-reduced-motion: reduce)")) {
+  throw new Error("Missing reduced-motion CSS.");
+}
+
+if (!css.includes(":focus-visible")) {
+  throw new Error("Missing visible keyboard focus styles.");
+}
+
+if (/letter-spacing:\s*-[^;]+;/.test(css)) {
+  throw new Error("Negative letter spacing is not allowed.");
+}
+
+if (/font-size:\s*[^;]*vw[^;]*;/.test(css)) {
+  throw new Error("Font size must not scale with viewport width.");
 }
 
 if (js.includes("mailto:")) {
