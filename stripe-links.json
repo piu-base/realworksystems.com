@@ -1,0 +1,20 @@
+{
+  "rws_ai_fix_review_1000": {
+    "label": "AI Fix Review",
+    "amount": 1000,
+    "description": "Async review for a broken AI build or expensive manual workflow.",
+    "url": "https://buy.stripe.com/aFa5kD4lG5JW7uf0ZWejK06"
+  },
+  "rws_ai_fix_plan_2500": {
+    "label": "AI Fix Plan",
+    "amount": 2500,
+    "description": "Diagnosis, implementation plan, and one technical strategy call.",
+    "url": "https://buy.stripe.com/5kQeVddWgb4gbKv384ejK07"
+  },
+  "rws_sprint_deposit_4000": {
+    "label": "AI Fix Sprint Deposit",
+    "amount": 4000,
+    "description": "Deposit to start a custom implementation sprint.",
+    "url": "https://buy.stripe.com/9B64gz05q6O05m7fUQejK08"
+  }
+}
