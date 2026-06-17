@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Real Work Systems logo mark">
+  <rect width="64" height="64" rx="4" fill="#08111F"/>
+  <path d="M12 12h15v15H12zM37 12h15v15H37zM12 37h15v15H12zM37 37h15v15H37z" fill="#6FD0F4"/>
+  <path d="M27 29h10v6H27zM29 27h6v10h-6z" fill="#F8FAFC"/>
+</svg>

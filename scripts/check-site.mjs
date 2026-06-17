@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 
 const html = readFileSync("index.html", "utf8");
+const terms = readFileSync("terms.html", "utf8");
+const privacy = readFileSync("privacy.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
 const js = readFileSync("script.js", "utf8");
 const stripeLinks = JSON.parse(readFileSync("stripe-links.json", "utf8"));
@@ -15,8 +17,11 @@ const requiredHtml = [
   "AI Build Rescue",
   "AI Workflow Fix",
   "No curiosity calls.",
-  "Systems over advice.",
+  "Systems first.",
   "AI stays practical.",
+  "privacy.html",
+  "terms.html",
+  "assets/logo-mark.svg",
   "$1,000",
   "$2,500",
   "$4,000",
@@ -25,6 +30,12 @@ const requiredHtml = [
 for (const text of requiredHtml) {
   if (!html.includes(text)) {
     throw new Error(`Missing required HTML text: ${text}`);
+  }
+}
+
+for (const text of ["Terms and Conditions", "Privacy Policy", "hello@realworksystems.com"]) {
+  if (!terms.includes(text) && !privacy.includes(text)) {
+    throw new Error(`Missing legal text: ${text}`);
   }
 }
 
