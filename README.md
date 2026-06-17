@@ -37,7 +37,19 @@ npm run check
 
 ## Deployment
 
-This is a static site. Deploy the contents of this folder to any static host and point `realworksystems.com` at it.
+This is a static site currently deployed to Vercel.
+
+Production:
+
+```text
+https://realworksystems.com
+```
+
+Vercel project:
+
+```text
+realworksystems-com
+```
 
 Current paid entry links:
 
