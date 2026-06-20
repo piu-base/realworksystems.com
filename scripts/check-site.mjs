@@ -23,7 +23,7 @@ const requiredHtml = [
   "Revenue capture",
   "Operating leverage",
   "Code rescue",
-  "When to start",
+  "Where to start",
   "Engagement model",
   "Start with one problem. Leave with the next move.",
   "Read Jose's work",
