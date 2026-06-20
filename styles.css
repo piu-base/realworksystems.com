@@ -490,10 +490,6 @@ h1 span {
   line-height: 1.08;
 }
 
-.fit-line.muted strong {
-  color: rgba(17, 19, 15, 0.58);
-}
-
 .process {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
