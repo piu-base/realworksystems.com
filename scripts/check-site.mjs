@@ -4,7 +4,6 @@ const html = readFileSync("index.html", "utf8");
 const terms = readFileSync("terms.html", "utf8");
 const privacy = readFileSync("privacy.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
-const js = readFileSync("script.js", "utf8");
 const stripeLinks = JSON.parse(readFileSync("stripe-links.json", "utf8"));
 
 const requiredHtml = [
@@ -14,10 +13,14 @@ const requiredHtml = [
   "See the Fix Review",
   "Recover revenue leaks",
   "$10k",
+  "From stuck work to working system",
   "Revenue capture",
   "Operating leverage",
   "Code rescue",
   "Payback first.",
+  "Engagement model",
+  "Turn one valuable problem into a decision and a working fix.",
+  "Read Jose's work",
   "Know what is broken before you pay for a build.",
   "Delivered in 5 business days",
   "Business first.",
@@ -68,7 +71,7 @@ if (/font-size:\s*[^;]*vw[^;]*;/.test(css)) {
   throw new Error("Font size must not scale with viewport width.");
 }
 
-if (js.includes("mailto:")) {
+if (html.includes("mailto:") || terms.includes("mailto:") || privacy.includes("mailto:")) {
   throw new Error("Mailto flow should not be used for paid entry.");
 }
 
