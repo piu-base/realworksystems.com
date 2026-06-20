@@ -1,6 +1,9 @@
 import { readFileSync } from "node:fs";
 
 const html = readFileSync("index.html", "utf8");
+const codeRescue = readFileSync("code-rescue.html", "utf8");
+const revenueCapture = readFileSync("revenue-capture.html", "utf8");
+const operatingLeverage = readFileSync("operating-leverage.html", "utf8");
 const terms = readFileSync("terms.html", "utf8");
 const privacy = readFileSync("privacy.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
@@ -10,21 +13,22 @@ const requiredHtml = [
   "Real Work Systems",
   "More revenue.",
   "Less manual work.",
-  "See the Fix Review",
+  "Start with a review",
   "Recover revenue leaks",
-  "$10k",
-  "From stuck work to working system",
+  "Pick your lane",
+  "Start with the problem",
   "Revenue capture",
   "Operating leverage",
   "Code rescue",
-  "Payback first.",
+  "When to start",
   "Engagement model",
-  "Turn one valuable problem into a decision and a working fix.",
+  "Start with one problem. Leave with the next move.",
   "Read Jose's work",
   "Know what is broken before you pay for a build.",
   "Delivered in 5 business days",
-  "Business first.",
-  "Systems first.",
+  "code-rescue.html",
+  "revenue-capture.html",
+  "operating-leverage.html",
   "privacy.html",
   "terms.html",
   "assets/logo-mark.svg",
@@ -36,6 +40,20 @@ const requiredHtml = [
 for (const text of requiredHtml) {
   if (!html.includes(text)) {
     throw new Error(`Missing required HTML text: ${text}`);
+  }
+}
+
+const laneRequirements = [
+  [codeRescue, "Your AI-built app looked close. Now it needs to actually work.", "Start Code Rescue"],
+  [revenueCapture, "Stop losing customers because the follow-up is slow or broken.", "Start Revenue Review"],
+  [operatingLeverage, "Give the team hours back from work that keeps repeating.", "Start Operations Review"],
+];
+
+for (const [page, headline, cta] of laneRequirements) {
+  for (const text of [headline, cta, "Start a Fix Review", "https://buy.stripe.com/aFa5kD4lG5JW7uf0ZWejK06"]) {
+    if (!page.includes(text)) {
+      throw new Error(`Missing lane page text: ${text}`);
+    }
   }
 }
 
@@ -71,7 +89,7 @@ if (/font-size:\s*[^;]*vw[^;]*;/.test(css)) {
   throw new Error("Font size must not scale with viewport width.");
 }
 
-if (html.includes("mailto:") || terms.includes("mailto:") || privacy.includes("mailto:")) {
+if ([html, codeRescue, revenueCapture, operatingLeverage, terms, privacy].some((page) => page.includes("mailto:"))) {
   throw new Error("Mailto flow should not be used for paid entry.");
 }
 
