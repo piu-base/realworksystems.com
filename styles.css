@@ -521,6 +521,93 @@ h1 span {
   letter-spacing: 0;
 }
 
+.review-section {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.review-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(36px, 7vw, 100px);
+  align-items: start;
+}
+
+.review-copy {
+  max-width: 720px;
+}
+
+.review-copy h2 {
+  font-size: 4.7rem;
+  line-height: 0.94;
+}
+
+.review-copy p {
+  max-width: 640px;
+  margin-top: 24px;
+  color: rgba(248, 250, 252, 0.72);
+  font-size: 1.16rem;
+  line-height: 1.6;
+}
+
+.review-list {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--line);
+  list-style: none;
+}
+
+.review-list li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 0.38fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  padding: clamp(22px, 3vw, 32px);
+  background: var(--ink);
+}
+
+.review-list span {
+  color: var(--accent-2);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.95rem;
+}
+
+.review-list strong {
+  font-size: 1.5rem;
+  line-height: 1.05;
+}
+
+.review-list p {
+  color: rgba(248, 250, 252, 0.68);
+  line-height: 1.55;
+}
+
+.review-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(28px, 5vw, 56px);
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.review-notes span {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  padding: 18px 22px;
+  background: var(--ink);
+  color: rgba(248, 250, 252, 0.72);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
 .pricing-section {
   background: var(--paper);
   color: var(--ink);
@@ -831,7 +918,8 @@ textarea:focus {
     font-size: 4.5rem;
   }
 
-  .pricing-intro h2 {
+  .pricing-intro h2,
+  .review-copy h2 {
     font-size: 4rem;
   }
 
@@ -862,8 +950,10 @@ textarea:focus {
   .split,
   .apply-section,
   .pricing-intro,
+  .review-layout,
   .process,
-  .pricing-grid {
+  .pricing-grid,
+  .review-notes {
     grid-template-columns: 1fr;
   }
 
@@ -874,6 +964,7 @@ textarea:focus {
   .large-copy h2,
   .about-copy h2,
   .apply-copy h2,
+  .review-copy h2,
   .pricing-intro h2 {
     font-size: 3.75rem;
   }
@@ -910,6 +1001,11 @@ textarea:focus {
   .process li,
   .pricing-grid article {
     min-height: auto;
+  }
+
+  .review-list li {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .process span {
@@ -983,6 +1079,7 @@ textarea:focus {
   .large-copy h2,
   .about-copy h2,
   .apply-copy h2,
+  .review-copy h2,
   .pricing-intro h2 {
     font-size: 2.7rem;
   }
