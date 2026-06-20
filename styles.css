@@ -907,26 +907,37 @@ textarea:focus {
 }
 
 .lane-hero {
-  min-height: 86svh;
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
   display: grid;
   align-content: center;
-  padding: calc(var(--header) + 92px) clamp(18px, 5vw, 72px) clamp(80px, 10vw, 130px);
+  padding: calc(var(--header) + 42px) clamp(18px, 5vw, 72px) clamp(72px, 8vw, 110px);
   background:
-    linear-gradient(90deg, rgba(8, 17, 31, 0.96) 0%, rgba(8, 17, 31, 0.78) 58%, rgba(8, 17, 31, 0.42) 100%),
-    linear-gradient(115deg, #08111f 0%, #102039 52%, #050a12 100%);
+    linear-gradient(90deg, rgba(8, 17, 31, 0.98) 0%, rgba(8, 17, 31, 0.9) 43%, rgba(8, 17, 31, 0.48) 76%, rgba(8, 17, 31, 0.24) 100%),
+    linear-gradient(0deg, rgba(8, 17, 31, 0.46), transparent 34%, rgba(8, 17, 31, 0.32)),
+    url("assets/hero-operations-floor.jpg");
+  background-position: center right;
+  background-size: cover;
+}
+
+.lane-hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .lane-hero h1 {
-  max-width: 1040px;
-  font-size: 6.8rem;
-  line-height: 0.9;
+  max-width: 960px;
+  margin-bottom: 22px;
+  font-size: 5.25rem;
+  line-height: 0.92;
 }
 
 .lane-hero > p:not(.eyebrow) {
-  max-width: 820px;
+  max-width: 760px;
   color: rgba(248, 250, 252, 0.78);
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: 1.16rem;
+  line-height: 1.5;
 }
 
 .lane-detail {
@@ -1282,8 +1293,9 @@ textarea:focus {
   }
 
   .lane-hero {
-    min-height: auto;
+    min-height: 100svh;
     padding-top: calc(var(--header) + 64px);
+    background-position: 66% center;
   }
 
   .lane-review-grid article {
