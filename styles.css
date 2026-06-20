@@ -265,23 +265,6 @@ h1 span {
   filter: saturate(0.78) contrast(1.03) brightness(0.76) blur(1.2px);
 }
 
-.hero-process {
-  position: absolute;
-  z-index: 2;
-  right: clamp(18px, 4vw, 56px);
-  bottom: clamp(22px, 6vh, 52px);
-  width: min(46vw, 650px);
-  margin: 0;
-  pointer-events: none;
-}
-
-.hero-process img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 28px 42px rgba(0, 8, 20, 0.42));
-}
-
 .engagement-steps span,
 .engagement-output span {
   color: var(--accent-2);
@@ -1101,11 +1084,6 @@ textarea:focus {
     font-size: 3.75rem;
   }
 
-  .hero-process {
-    width: min(48vw, 520px);
-    opacity: 0.9;
-  }
-
   .proof-item {
     min-height: 0;
     grid-template-rows: auto;
@@ -1163,7 +1141,7 @@ textarea:focus {
     padding-left: 24px;
     padding-right: 24px;
     padding-top: calc(var(--header) + 48px);
-    padding-bottom: 238px;
+    padding-bottom: 172px;
     align-items: flex-start;
   }
 
@@ -1182,14 +1160,6 @@ textarea:focus {
   .hero-visual img {
     object-position: 67% center;
     opacity: 0.34;
-  }
-
-  .hero-process {
-    left: 24px;
-    right: 24px;
-    bottom: 22px;
-    width: auto;
-    opacity: 0.94;
   }
 
   .hero-subtitle {
