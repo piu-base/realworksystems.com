@@ -916,7 +916,7 @@ textarea:focus {
   background:
     linear-gradient(90deg, rgba(8, 17, 31, 0.98) 0%, rgba(8, 17, 31, 0.9) 43%, rgba(8, 17, 31, 0.48) 76%, rgba(8, 17, 31, 0.24) 100%),
     linear-gradient(0deg, rgba(8, 17, 31, 0.46), transparent 34%, rgba(8, 17, 31, 0.32)),
-    url("assets/hero-operations-floor.jpg");
+    url("assets/hero-operations-calm.jpg");
   background-position: center right;
   background-size: cover;
 }

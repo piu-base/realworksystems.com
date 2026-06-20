@@ -16,7 +16,7 @@ const requiredHtml = [
   "Start with a review",
   "Recover revenue leaks",
   "Pick your lane",
-  "assets/hero-operations-floor.jpg",
+  "assets/hero-operations-calm.jpg",
   "Missed customers",
   "Too much admin",
   "Broken build",
