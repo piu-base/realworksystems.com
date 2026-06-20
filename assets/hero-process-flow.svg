@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 620" role="img" aria-labelledby="title desc">
+  <title id="title">Real Work Systems transformation map</title>
+  <desc id="desc">Missed customers, too much admin, and broken builds enter Real Work Systems and become Recover revenue leaks, Cut operating drag, and Free team capacity.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f" stop-opacity=".94"/>
+      <stop offset=".58" stop-color="#0d1d31" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#13293c" stop-opacity=".94"/>
+    </linearGradient>
+    <radialGradient id="coreGlow" cx=".5" cy=".45" r=".64">
+      <stop offset="0" stop-color="#6fd0f4" stop-opacity=".36"/>
+      <stop offset=".58" stop-color="#0b6f9f" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#0b6f9f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="core" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b6f9f"/>
+      <stop offset=".58" stop-color="#0b2238"/>
+      <stop offset="1" stop-color="#07111f"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0" x2="1">
+      <stop offset="0" stop-color="#6fd0f4" stop-opacity=".42"/>
+      <stop offset=".5" stop-color="#8be7ff" stop-opacity=".96"/>
+      <stop offset="1" stop-color="#9bd5c0" stop-opacity=".76"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000814" flood-opacity=".45"/>
+    </filter>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 L11 7 L2 12" fill="none" stroke="#8be7ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 0; }
+      .kicker { fill: #6fd0f4; font-size: 21px; font-weight: 850; text-transform: uppercase; }
+      .label { fill: #f8fafc; font-size: 24px; font-weight: 820; }
+      .subtle { fill: #a9b8c9; font-size: 16px; font-weight: 700; }
+      .mini { fill: #d9e7f4; font-size: 15px; font-weight: 760; }
+      .flow { fill: none; stroke: url(#flow); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow); }
+      .hairline { fill: none; stroke: #6fd0f4; stroke-opacity: .2; stroke-width: 1; }
+      .paper { fill: #e7eef6; }
+      .paper-line { stroke: #41566a; stroke-width: 2.7; stroke-linecap: round; }
+      .ok { fill: #9bd5c0; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="980" height="620" rx="36" fill="url(#panel)"/>
+  <ellipse cx="500" cy="310" rx="320" ry="270" fill="url(#coreGlow)" filter="url(#blur)"/>
+  <path class="hairline" d="M54 88 H926 M54 532 H926 M326 62 V558 M654 62 V558"/>
+
+  <text class="kicker" x="74" y="76">Bring in</text>
+  <text class="kicker" x="442" y="76">Through</text>
+  <text class="kicker" x="760" y="76">Get out</text>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(62 116)">
+      <circle cx="64" cy="62" r="48" fill="#102033" stroke="#6fd0f4" stroke-opacity=".2"/>
+      <circle cx="42" cy="66" r="5" fill="#6fd0f4"/>
+      <circle cx="78" cy="40" r="5" fill="#9bd5c0"/>
+      <circle cx="106" cy="70" r="6" fill="#d9e7f4" opacity=".72"/>
+      <path d="M42 66 L78 40 L106 70 M78 40 L88 98 M42 66 L88 98" stroke="#9fb1c4" stroke-opacity=".55" stroke-width="3" fill="none"/>
+      <text class="label" x="118" y="54">Missed customers</text>
+    </g>
+
+    <g transform="translate(62 258)">
+      <path d="M18 110 H136 L152 42 C118 14 56 14 20 42Z" fill="#9c795d"/>
+      <path d="M36 50 H132 M30 78 H126" stroke="#5d4637" stroke-width="6" stroke-linecap="round"/>
+      <g transform="translate(24 -4) rotate(-8)">
+        <rect x="38" y="2" width="58" height="82" rx="4" class="paper"/>
+        <path d="M49 24 H82 M49 42 H80 M49 60 H75" class="paper-line"/>
+      </g>
+      <g transform="translate(76 12) rotate(7)">
+        <rect x="38" y="2" width="58" height="82" rx="4" fill="#f3f7fb"/>
+        <path d="M49 24 H82 M49 42 H80 M49 60 H75" class="paper-line"/>
+      </g>
+      <text class="label" x="0" y="156">Too much admin</text>
+    </g>
+
+    <g transform="translate(62 438)">
+      <path d="M28 18 H142 L122 100 H10 Z" fill="#17263a" stroke="#6fd0f4" stroke-opacity=".2"/>
+      <path d="M54 42 L34 60 L54 78 M100 42 L120 60 L100 78" stroke="#d9e7f4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M84 36 L70 84" stroke="#c24136" stroke-width="7" stroke-linecap="round"/>
+      <text class="label" x="0" y="142">Broken build</text>
+    </g>
+  </g>
+
+  <path class="flow" d="M288 186 C346 188 358 240 402 260"/>
+  <path class="flow" d="M288 338 C348 338 362 326 402 314"/>
+  <path class="flow" d="M288 500 C350 490 366 378 402 350"/>
+
+  <g transform="translate(360 146)" filter="url(#shadow)">
+    <circle cx="150" cy="164" r="154" fill="url(#core)" stroke="#6fd0f4" stroke-opacity=".38" stroke-width="2"/>
+    <circle cx="150" cy="164" r="112" fill="none" stroke="#6fd0f4" stroke-opacity=".24" stroke-width="2"/>
+    <path d="M64 164 H236" stroke="#8be7ff" stroke-width="8" stroke-linecap="round" opacity=".76"/>
+    <path d="M84 112 C112 88 188 88 218 112 M84 216 C114 240 188 240 218 216" stroke="#6fd0f4" stroke-opacity=".34" stroke-width="3" fill="none"/>
+    <circle cx="82" cy="134" r="15" class="ok"/>
+    <path d="M74 134 L81 141 L94 127" stroke="#0b2238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="218" cy="194" r="15" class="ok"/>
+    <path d="M210 194 L217 201 L230 187" stroke="#0b2238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="76" y="190" width="52" height="12" rx="6" fill="#d9e7f4" opacity=".48"/>
+    <rect x="178" y="132" width="56" height="12" rx="6" fill="#d9e7f4" opacity=".48"/>
+    <text x="150" y="146" text-anchor="middle" fill="#f8fafc" font-size="36" font-weight="850">Real Work</text>
+    <text x="150" y="188" text-anchor="middle" fill="#f8fafc" font-size="36" font-weight="850">Systems</text>
+    <text x="150" y="238" text-anchor="middle" class="mini">diagnose, design, build</text>
+  </g>
+
+  <path class="flow" d="M650 260 C688 234 702 188 746 178"/>
+  <path class="flow" d="M650 314 C698 314 710 314 746 314"/>
+  <path class="flow" d="M650 350 C688 380 702 442 746 454"/>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(742 118)">
+      <path d="M26 112 V76 H62 V112 Z M78 112 V50 H114 V112 Z M130 112 V22 H166 V112 Z" fill="#9bd5c0" opacity=".8"/>
+      <path d="M22 122 C78 118 124 82 168 28" stroke="#6fd0f4" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <text class="label" x="0" y="162">
+        <tspan x="0">Recover revenue</tspan>
+        <tspan x="0" dy="28">leaks</tspan>
+      </text>
+    </g>
+
+    <g transform="translate(742 288)">
+      <circle cx="84" cy="64" r="54" fill="#17263a" stroke="#6fd0f4" stroke-opacity=".24" stroke-width="2"/>
+      <path d="M84 26 V64 L116 88" stroke="#d9e7f4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M40 128 H132" stroke="#8ea282" stroke-width="8" stroke-linecap="round"/>
+      <text class="label" x="0" y="170">Cut operating drag</text>
+    </g>
+
+    <g transform="translate(742 462)">
+      <circle cx="44" cy="44" r="22" fill="#d9e7f4" opacity=".84"/>
+      <circle cx="96" cy="44" r="22" fill="#9bd5c0" opacity=".84"/>
+      <path d="M10 100 C18 72 70 72 78 100 M62 100 C70 72 122 72 130 100" stroke="#d9e7f4" stroke-width="7" stroke-linecap="round" fill="none" opacity=".82"/>
+      <path d="M152 28 H198 M152 56 H214 M152 84 H194" stroke="#6fd0f4" stroke-width="7" stroke-linecap="round"/>
+      <text class="label" x="0" y="148">Free team capacity</text>
+    </g>
+  </g>
+</svg>

@@ -7,6 +7,7 @@ const operatingLeverage = readFileSync("operating-leverage.html", "utf8");
 const terms = readFileSync("terms.html", "utf8");
 const privacy = readFileSync("privacy.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
+const processFlow = readFileSync("assets/hero-process-flow.svg", "utf8");
 const stripeLinks = JSON.parse(readFileSync("stripe-links.json", "utf8"));
 
 const requiredHtml = [
@@ -14,15 +15,25 @@ const requiredHtml = [
   "More revenue.",
   "Less manual work.",
   "Start with a review",
-  "Recover revenue leaks",
   "Pick your lane",
   "assets/hero-operations-calm.jpg",
+  "assets/hero-process-flow.svg",
+  "Bring in missed customers",
+];
+
+const requiredProcessFlow = [
   "Bring in",
   "Missed customers",
   "Too much admin",
   "Broken build",
   "Through",
   "Get out",
+  "Recover revenue leaks",
+  "Cut operating drag",
+  "Free team capacity",
+];
+
+const requiredMainHtml = [
   "Revenue capture",
   "Operating leverage",
   "Code rescue",
@@ -43,9 +54,15 @@ const requiredHtml = [
   "$4,000",
 ];
 
-for (const text of requiredHtml) {
+for (const text of [...requiredHtml, ...requiredMainHtml]) {
   if (!html.includes(text)) {
     throw new Error(`Missing required HTML text: ${text}`);
+  }
+}
+
+for (const text of requiredProcessFlow) {
+  if (!processFlow.includes(text)) {
+    throw new Error(`Missing process flow text: ${text}`);
   }
 }
 
