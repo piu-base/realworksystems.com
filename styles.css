@@ -145,34 +145,25 @@ textarea {
   min-height: 100svh;
   position: relative;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.78fr);
-  gap: clamp(36px, 6vw, 86px);
+  display: flex;
   align-items: center;
   padding: calc(var(--header) + 36px) clamp(18px, 5vw, 72px) 88px;
-  background:
-    linear-gradient(90deg, rgba(8, 17, 31, 0.98) 0%, rgba(8, 17, 31, 0.88) 48%, rgba(8, 17, 31, 0.46) 100%),
-    linear-gradient(115deg, #08111f 0%, #102039 52%, #050a12 100%);
+  background: var(--ink);
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(248, 250, 252, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(248, 250, 252, 0.028) 1px, transparent 1px);
-  background-size: 52px 52px;
-  mask-image: linear-gradient(90deg, transparent 0%, transparent 49%, rgba(0, 0, 0, 0.26) 65%, black 100%);
-  opacity: 0.72;
+  background:
+    linear-gradient(90deg, rgba(8, 17, 31, 0.98) 0%, rgba(8, 17, 31, 0.9) 36%, rgba(8, 17, 31, 0.52) 63%, rgba(8, 17, 31, 0.18) 100%),
+    linear-gradient(0deg, rgba(8, 17, 31, 0.52), transparent 32%, rgba(8, 17, 31, 0.38));
   pointer-events: none;
 }
 
 .hero-copy {
   position: relative;
-  z-index: 2;
-  grid-column: 1;
-  grid-row: 1;
+  z-index: 3;
   width: 100%;
   max-width: 680px;
 }
@@ -259,52 +250,69 @@ h1 span {
 }
 
 .hero-visual {
-  position: relative;
+  position: absolute;
   z-index: 1;
-  grid-column: 2;
-  grid-row: 1;
+  inset: 0;
+}
+
+.hero-visual img {
   width: 100%;
-  align-self: center;
-  opacity: 0.94;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center right;
+  filter: saturate(0.82) contrast(1.04) brightness(0.82);
 }
 
-.lane-panel {
-  display: grid;
-  gap: 1px;
-  border: 1px solid rgba(248, 250, 252, 0.14);
-  background: rgba(248, 250, 252, 0.12);
-  box-shadow: 0 44px 130px rgba(0, 0, 0, 0.34);
+.scene-labels {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
 }
 
-.lane-panel-label,
-.lane-panel a {
-  background: rgba(8, 17, 31, 0.78);
+.scene-label {
+  position: absolute;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(248, 250, 252, 0.22);
+  background: rgba(8, 17, 31, 0.64);
+  color: rgba(248, 250, 252, 0.82);
+  font-size: 12px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0;
   backdrop-filter: blur(12px);
-}
-
-.lane-panel-label {
-  padding: 18px 22px;
-}
-
-.lane-panel a {
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-  min-height: 132px;
-  padding: 22px;
+  pointer-events: auto;
   transition:
     background 180ms ease,
+    border-color 180ms ease,
     transform 180ms ease;
 }
 
-.lane-panel a:hover {
-  background: rgba(11, 111, 159, 0.18);
-  transform: translateX(4px);
+.scene-label:hover {
+  background: rgba(11, 111, 159, 0.42);
+  border-color: rgba(111, 208, 244, 0.54);
+  transform: translateY(-2px);
 }
 
-.lane-panel-label,
-.lane-panel span,
+.scene-label-a {
+  top: 28%;
+  right: 30%;
+}
+
+.scene-label-b {
+  top: 50%;
+  right: 18%;
+}
+
+.scene-label-c {
+  bottom: 22%;
+  right: 34%;
+}
+
 .engagement-steps span,
 .engagement-output span {
   color: var(--accent-2);
@@ -313,22 +321,6 @@ h1 span {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0;
-}
-
-.lane-panel strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--white);
-  font-size: 1.55rem;
-  line-height: 1.05;
-}
-
-.lane-panel p {
-  grid-column: 2;
-  margin-bottom: 0;
-  color: rgba(248, 250, 252, 0.66);
-  font-size: 0.95rem;
-  line-height: 1.5;
 }
 
 .hero-footer {
@@ -1109,17 +1101,17 @@ textarea:focus {
   }
 
   .hero {
-    display: flex;
     align-items: flex-end;
     padding-bottom: 150px;
   }
 
-  .hero-visual {
-    position: absolute;
-    top: 12%;
-    right: -18%;
-    width: 76vw;
-    opacity: 0.28;
+  .hero-visual img {
+    object-position: 63% center;
+    opacity: 0.72;
+  }
+
+  .scene-labels {
+    opacity: 0.24;
   }
 
   .hero-footer,
@@ -1228,10 +1220,19 @@ textarea:focus {
   }
 
   .hero-visual {
-    top: 86px;
-    right: -112%;
-    width: 172vw;
-    opacity: 0.12;
+    top: 0;
+    right: 0;
+    width: auto;
+    opacity: 1;
+  }
+
+  .hero-visual img {
+    object-position: 67% center;
+    opacity: 0.34;
+  }
+
+  .scene-labels {
+    display: none;
   }
 
   .hero-subtitle {
@@ -1265,10 +1266,6 @@ textarea:focus {
   .review-copy h2,
   .pricing-intro h2 {
     font-size: 2.7rem;
-  }
-
-  .lane-panel a {
-    min-height: 116px;
   }
 
   .engagement-steps li {
