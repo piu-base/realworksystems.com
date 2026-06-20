@@ -982,14 +982,18 @@ textarea:focus {
   }
 
   .doorway {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 18px;
   }
 
-  .doorway-label,
+  .doorway-label {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .doorway h3,
   .doorway p {
-    grid-column: auto;
-    grid-row: auto;
+    grid-column: 2;
   }
 
   .pricing-grid article {
@@ -1074,6 +1078,11 @@ textarea:focus {
   .doorway h3,
   .pricing-grid h3 {
     font-size: 1.55rem;
+  }
+
+  .doorway {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 14px;
   }
 
   .large-copy h2,
