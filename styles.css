@@ -576,10 +576,9 @@ h1 span {
   padding: 18px 22px;
   background: var(--ink);
   color: rgba(248, 250, 252, 0.72);
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 0.95rem;
+  font-weight: 650;
   line-height: 1.45;
-  text-transform: uppercase;
   letter-spacing: 0;
 }
 

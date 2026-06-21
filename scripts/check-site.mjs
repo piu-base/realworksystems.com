@@ -27,7 +27,7 @@ const requiredMainHtml = [
   "Start with one problem. Leave with the next move.",
   "Read Jose's work",
   "Know what is broken before you pay for a build.",
-  "Delivered in 5 business days",
+  "within 5 business days",
   "code-rescue.html",
   "revenue-capture.html",
   "operating-leverage.html",
@@ -52,7 +52,7 @@ const laneRequirements = [
 ];
 
 for (const [page, headline, cta] of laneRequirements) {
-  for (const text of [headline, cta, "Start a Fix Review", "https://buy.stripe.com/aFa5kD4lG5JW7uf0ZWejK06"]) {
+  for (const text of [headline, cta, "Start a Fix Review", "/#fix-review", "/#start"]) {
     if (!page.includes(text)) {
       throw new Error(`Missing lane page text: ${text}`);
     }
