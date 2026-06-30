@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..650;1,9..144,400..600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap");
+
 :root {
   --ink: #08111f;
   --ink-2: #101b2d;
@@ -6,14 +8,16 @@
   --muted: #8b98aa;
   --line: rgba(248, 250, 252, 0.14);
   --line-dark: rgba(8, 17, 31, 0.12);
-  --accent: #0b6f9f;
-  --accent-2: #6fd0f4;
+  --accent: #c98a3f;
+  --accent-2: #e3b774;
   --accent-3: #6a8a61;
   --white: #ffffff;
   --danger: #c24136;
   --header: 76px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --z-header: 20;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 * {
@@ -29,11 +33,10 @@ body {
   margin: 0;
   background: var(--ink);
   color: var(--paper);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: var(--font-body);
   letter-spacing: 0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -148,7 +151,10 @@ textarea {
   display: flex;
   align-items: center;
   padding: calc(var(--header) + 36px) clamp(18px, 5vw, 72px) 88px;
-  background: var(--ink);
+  background:
+    radial-gradient(125% 95% at 8% -10%, rgba(201, 138, 63, 0.16), transparent 52%),
+    radial-gradient(90% 80% at 108% 112%, rgba(16, 27, 45, 0.95), transparent 60%),
+    var(--ink);
 }
 
 .hero::after {
@@ -156,8 +162,7 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(8, 17, 31, 0.98) 0%, rgba(8, 17, 31, 0.9) 36%, rgba(8, 17, 31, 0.52) 63%, rgba(8, 17, 31, 0.18) 100%),
-    linear-gradient(0deg, rgba(8, 17, 31, 0.52), transparent 32%, rgba(8, 17, 31, 0.38));
+    repeating-linear-gradient(90deg, rgba(248, 250, 252, 0.022) 0 1px, transparent 1px 88px);
   pointer-events: none;
 }
 
@@ -173,9 +178,11 @@ textarea {
 .section-kicker {
   margin: 0 0 22px;
   color: var(--accent-2);
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.18rem;
+  font-weight: 500;
+  text-transform: none;
   letter-spacing: 0;
 }
 
@@ -186,12 +193,20 @@ p {
   margin-top: 0;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 560;
+  letter-spacing: 0;
+}
+
 h1 {
   margin-bottom: 22px;
-  max-width: 700px;
-  font-size: 5.85rem;
-  line-height: 0.9;
-  font-weight: 820;
+  max-width: 760px;
+  font-size: 5.2rem;
+  line-height: 0.99;
+  font-weight: 560;
   letter-spacing: 0;
 }
 
@@ -1272,5 +1287,189 @@ textarea:focus {
   [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* --- form front door + de-AI copy additions (2026-06-30) --- */
+.apply-form .full {
+  grid-column: 1 / -1;
+}
+
+.apply-form button.button {
+  font-family: inherit;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.about-opinion {
+  margin-top: 18px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  color: rgba(17, 19, 15, 0.82);
+  font-weight: 650;
+}
+
+.pricing-warm {
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(248, 250, 252, 0.6);
+}
+
+.pricing-warm a {
+  color: var(--accent);
+  font-weight: 750;
+}
+
+/* --- micro-interactions + scroll reveal (2026-06-30) --- */
+
+/* Reveal only engages when JS adds .js-reveal to <html>. No JS, reduced motion,
+   or no IntersectionObserver -> everything stays visible. Never blocks scroll. */
+html.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: opacity, transform;
+}
+
+html.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Nav links: gold underline grows in on hover/focus */
+.nav a:not(.nav-cta) {
+  position: relative;
+}
+
+.nav a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--accent-2);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms var(--ease-out);
+}
+
+.nav a:not(.nav-cta):hover::after,
+.nav a:not(.nav-cta):focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Text links get a sliding arrow affordance */
+.text-link::after {
+  content: "\2192";
+  margin-left: 8px;
+  opacity: 0.65;
+  transform: translateX(-2px);
+  transition:
+    transform 180ms var(--ease-out),
+    opacity 180ms ease;
+}
+
+.text-link:hover::after,
+.text-link:focus-visible::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Doorways: subtle nudge + label warms on hover */
+.doorway {
+  transition:
+    transform 240ms var(--ease-out),
+    border-color 240ms ease;
+}
+
+.doorway:hover {
+  transform: translateX(6px);
+  border-bottom-color: var(--accent-2);
+}
+
+.doorway:hover .doorway-label {
+  color: var(--accent);
+}
+
+/* Pricing cards: warm on hover, reveal the meta line */
+.pricing-grid article {
+  transition: background 240ms ease;
+}
+
+.pricing-grid article:hover {
+  background: var(--white);
+}
+
+.card-body {
+  display: grid;
+  gap: 8px;
+}
+
+.pricing-grid .card-meta {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--accent);
+  opacity: 0.6;
+  transform: translateY(2px);
+  transition:
+    opacity 240ms ease,
+    transform 240ms var(--ease-out);
+}
+
+.pricing-grid article:hover .card-meta {
+  opacity: 1;
+  transform: none;
+}
+
+/* Buttons: small press feedback */
+.button:active {
+  transform: translateY(1px);
+}
+
+/* Active form field reveals itself with a gold label */
+.apply-form label > span {
+  transition: color 180ms ease;
+}
+
+.apply-form label:focus-within > span {
+  color: var(--accent);
+}
+
+/* About: portrait alongside the copy */
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(36px, 6vw, 84px);
+  align-items: center;
+  width: 100%;
+}
+
+.about-portrait {
+  margin: 0;
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.about-portrait figcaption {
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(248, 250, 252, 0.55);
+}
+
+@media (max-width: 860px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-portrait {
+    max-width: 320px;
   }
 }

@@ -66,32 +66,33 @@ if (!readFileSync("robots.txt", "utf8").includes("Sitemap: https://realworksyste
 
 const requiredHtml = [
   "Real Work Systems",
-  "More revenue.",
-  "Less manual work.",
-  "Start with a review",
-  "Pick your lane",
-  "assets/hero-operations-calm.jpg",
+  "Something in your business",
+  "keeps breaking.",
+  "Tell us what's broken",
+  "See how it works",
 ];
 
 const requiredMainHtml = [
-  "Revenue capture",
-  "Operating leverage",
-  "Code rescue",
-  "Where to start",
-  "Engagement model",
-  "Start with one problem. Leave with the next move.",
-  "Read Jose's work",
-  "Know what is broken before you pay for a build.",
+  "Leads come in and nobody follows up",
+  "People do work the software should do",
+  "Your AI-built app breaks with real users",
+  "Start here if",
+  "How it works",
+  "You bring one problem. We tell you what to do about it.",
+  "See Jose's work",
+  "Know what's broken before you pay to build.",
   "within 5 business days",
   "code-rescue.html",
   "revenue-capture.html",
   "operating-leverage.html",
   "privacy.html",
   "terms.html",
+  "payments.html",
   "assets/logo-mark.svg",
   "$1,000",
   "$2,500",
   "$4,000",
+  "formspree.io",
 ];
 
 for (const text of [...requiredHtml, ...requiredMainHtml]) {
@@ -120,9 +121,13 @@ for (const text of ["Terms and Conditions", "Privacy Policy", "hello@realworksys
   }
 }
 
+const payments = readFileSync("payments.html", "utf8");
 for (const item of Object.values(stripeLinks)) {
-  if (!html.includes(item.url)) {
-    throw new Error(`Missing Stripe link in HTML: ${item.url}`);
+  if (!payments.includes(item.url)) {
+    throw new Error(`Missing Stripe link in payments.html: ${item.url}`);
+  }
+  if (html.includes(item.url)) {
+    throw new Error(`Stripe link should not be on the cold homepage: ${item.url}`);
   }
 }
 
