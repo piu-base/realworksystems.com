@@ -1437,6 +1437,17 @@ html.js-reveal [data-reveal].is-visible {
   color: var(--accent);
 }
 
+/* Honeypot field: off-screen, skipped by people and assistive tech, bots fill it */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Custom-styled select: drop the native OS chrome, add a gold chevron */
 .apply-form select {
   -webkit-appearance: none;

@@ -339,6 +339,15 @@
             <span>Name (optional)</span>
             <input type="text" name="name" placeholder="Your name" />
           </label>
+          <!-- Honeypot: hidden from people, bots fill it, Formspree discards those submissions. -->
+          <input
+            class="hp-field"
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
           <button class="button primary full" type="submit">Send it over</button>
         </form>
       </section>
