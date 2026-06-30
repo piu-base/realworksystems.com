@@ -25,6 +25,9 @@ const requiredSeoTags = [
   'content="https://realworksystems.com/assets/og-image.png"',
   'name="twitter:card"',
   'content="summary_large_image"',
+  'rel="apple-touch-icon"',
+  "https://www.clarity.ms/tag/",
+  '"xfag0tc0kf"',
 ];
 
 for (const [name, page] of Object.entries(allPages)) {
@@ -39,7 +42,7 @@ if (!html.includes("application/ld+json") || !html.includes('"ProfessionalServic
   throw new Error("Missing JSON-LD structured data on homepage.");
 }
 
-for (const file of ["robots.txt", "sitemap.xml", "assets/og-image.png"]) {
+for (const file of ["robots.txt", "sitemap.xml", "assets/og-image.png", "apple-touch-icon.png"]) {
   if (!existsSync(file)) {
     throw new Error(`Missing required file: ${file}`);
   }
