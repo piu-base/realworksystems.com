@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#08111F"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#6FD0F4"/>
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#F8FAFC" stroke-opacity="0.10"/>
+
+  <!-- mark (placeholder accent, not final logo) -->
+  <g transform="translate(80,58) scale(0.62)">
+    <path d="M0 0h15v15H0zM25 0h15v15H25zM0 25h15v15H0zM25 25h15v15H25z" fill="#6FD0F4"/>
+    <path d="M15 17h10v6H15zM17 15h6v10h-6z" fill="#F8FAFC"/>
+  </g>
+  <text x="140" y="98" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="6" fill="#F8FAFC">REAL WORK SYSTEMS</text>
+
+  <text x="78" y="318" font-family="Arial, Helvetica, sans-serif" font-size="98" font-weight="800" fill="#F8FAFC">More revenue.</text>
+  <text x="78" y="430" font-family="Arial, Helvetica, sans-serif" font-size="98" font-weight="800" fill="#F8FAFC">Less manual work.</text>
+
+  <text x="80" y="512" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" fill="#8B98AA">Systems for revenue, cost, risk, and team capacity.</text>
+
+  <text x="80" y="578" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#6FD0F4">realworksystems.com</text>
+</svg>

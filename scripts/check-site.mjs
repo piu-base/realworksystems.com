@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 
 const html = readFileSync("index.html", "utf8");
 const codeRescue = readFileSync("code-rescue.html", "utf8");
@@ -8,6 +8,58 @@ const terms = readFileSync("terms.html", "utf8");
 const privacy = readFileSync("privacy.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
 const stripeLinks = JSON.parse(readFileSync("stripe-links.json", "utf8"));
+
+const allPages = {
+  "index.html": html,
+  "revenue-capture.html": revenueCapture,
+  "operating-leverage.html": operatingLeverage,
+  "code-rescue.html": codeRescue,
+  "privacy.html": privacy,
+  "terms.html": terms,
+};
+
+const requiredSeoTags = [
+  'rel="canonical"',
+  'property="og:title"',
+  'property="og:image"',
+  'content="https://realworksystems.com/assets/og-image.png"',
+  'name="twitter:card"',
+  'content="summary_large_image"',
+];
+
+for (const [name, page] of Object.entries(allPages)) {
+  for (const tag of requiredSeoTags) {
+    if (!page.includes(tag)) {
+      throw new Error(`Missing SEO tag ${tag} in ${name}`);
+    }
+  }
+}
+
+if (!html.includes("application/ld+json") || !html.includes('"ProfessionalService"')) {
+  throw new Error("Missing JSON-LD structured data on homepage.");
+}
+
+for (const file of ["robots.txt", "sitemap.xml", "assets/og-image.png"]) {
+  if (!existsSync(file)) {
+    throw new Error(`Missing required file: ${file}`);
+  }
+}
+
+const sitemap = readFileSync("sitemap.xml", "utf8");
+for (const loc of [
+  "https://realworksystems.com/",
+  "https://realworksystems.com/revenue-capture",
+  "https://realworksystems.com/operating-leverage",
+  "https://realworksystems.com/code-rescue",
+]) {
+  if (!sitemap.includes(`<loc>${loc}</loc>`)) {
+    throw new Error(`Missing sitemap entry: ${loc}`);
+  }
+}
+
+if (!readFileSync("robots.txt", "utf8").includes("Sitemap: https://realworksystems.com/sitemap.xml")) {
+  throw new Error("robots.txt missing sitemap reference.");
+}
 
 const requiredHtml = [
   "Real Work Systems",

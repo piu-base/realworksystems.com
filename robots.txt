@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://realworksystems.com/sitemap.xml
